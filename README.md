@@ -122,8 +122,8 @@ Finally, pack the library using the following scripts
         "test": "ng test",
 +       "lint": "ng lint",
 +       "e2e": "ng e2e",
-+       "build-lib": "ng build flux",
-+       "npm-pack": "cd dist/flux && npm pack",
++       "build-lib": "ng build @flux/ui",
++       "npm-pack": "cd dist/flux/ui && npm pack",
 +       "package": "npm run build-lib && npm run npm-pack"
     }
 ```
@@ -131,8 +131,40 @@ Finally, pack the library using the following scripts
 npm run package
 ```
 
+Create a new Angular application in separate directory
+```bash
+ng new workflux-app
+```
+
 Install the tarball to use the standalone library in your application. Copy the tarball to the application directory and use its absolute filepath.
 
 ```bash
 npm install <filepath>
+```
+#### **`app.module.ts`**
+```diff
+    import { NgModule } from '@angular/core';
+    import { BrowserModule } from '@angular/platform-browser';
++   import {ButtonModule, UiModule} from "@flux/ui";
+    import { AppRoutingModule } from './app-routing.module';
+    import { AppComponent } from './app.component';
+
+    @NgModule({
+      declarations: [
+        AppComponent
+      ],
+      imports: [
+        BrowserModule,
+        AppRoutingModule,
++       UiModule,
++       ButtonModule
+      ],
+      providers: [],
+      bootstrap: [AppComponent]
+    })
+    export class AppModule { }
+```
+#### **`app.component.ts`**
+```diff
+<flux-button></flux-button>
 ```
