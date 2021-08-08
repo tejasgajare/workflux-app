@@ -5,6 +5,10 @@ Create a new Angular workspace without an application.
 ng new flux-ui --create-application=false
 ```
 
+```bash
+cd flux-ui
+```
+
 Configure the library to use SASS rather than the default CSS styling.
 ```bash
 ng config schematics.@schematics/angular:component.style scss
@@ -12,7 +16,6 @@ ng config schematics.@schematics/angular:component.style scss
 
 Generate a library in the workspace. We must explicitly mention the prefix. 
 ```bash
-cd flux-ui
 ng generate library flux --prefix=flux
 ```
 
