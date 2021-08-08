@@ -90,28 +90,25 @@ This will allow us to export the button component with single export in public-a
 export * from './lib/button'
 ```
 Remove the ButtonComponent from the declarations (which is added by default with ng generate component commnand) in the root module. Add the ButtonModule to the imports.
-#### **`flux.module.ts`**
+#### **`ui.module.ts`**
 ```diff
     import { NgModule } from '@angular/core';
-    import { FluxComponent } from './flux.component';
--   import { ButtonComponent } from './button/button.component';
+    import { UiComponent } from './ui.component';
 +   import { ButtonModule } from './button';
-
-
 
     @NgModule({
     declarations: [
-        FluxComponent,
+        UiComponent,
 -       ButtonComponent
     ],
     imports: [
 +       ButtonModule
     ],
     exports: [
-        FluxComponent
+        UiComponent
     ]
     })
-    export class FluxModule { }
+    export class UiComponent { }
 ```
 
 Finally, pack the library using the following scripts
