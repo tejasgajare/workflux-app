@@ -1,6 +1,6 @@
 # Create Standalone UI Component Library in Angular
 
-Create new workspace without an application.
+Create a new Angular workspace without an application.
 ```bash
 ng new flux-ui --create-application=false
 ```
@@ -10,13 +10,13 @@ Configure the library to use SASS rather than the default CSS styling.
 ng config schematics.@schematics/angular:component.style scss
 ```
 
-Generate a library in the workspace.
+Generate a library in the workspace. We must explicitly mention the prefix. 
 ```bash
 cd flux-ui
 ng generate library flux --prefix=flux
 ```
 
-Create an UI Component. We will use an example of a simple Button.
+Create a UI Component. We will use an example of a simple Button.
 ```bash
 ng generate component button
 ```
@@ -49,7 +49,7 @@ Customise the components as per our needs.
 <button [disabled]="disabled">{{text}}</button>
 ```
 
-Create Button module to consolidate the component and services.
+Create a Button module to consolidate the component and services.
 ```bash
 ng generate module button
 ```
