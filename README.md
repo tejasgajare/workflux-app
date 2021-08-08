@@ -29,7 +29,7 @@ Customise the components as per our needs.
     @Component({
     selector: 'flux-button',
     templateUrl: './button.component.html',
-    styleUrls: ['./button.component.css']
+    styleUrls: ['./button.component.scss']
     })
     export class ButtonComponent implements OnInit {
 
