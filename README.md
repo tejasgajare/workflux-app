@@ -1,22 +1,22 @@
 # Create Standalone UI Component Library in Angular
 
-### Create new workspace without an application.
+Create new workspace without an application.
 ```bash
 ng new flux-ui --create-application=false
 ```
 
-### Generate a library in the workspace.
+Generate a library in the workspace.
 ```bash
 cd flux-ui
 ng generate library flux --prefix=flux
 ```
 
-### Create an UI Component. We will use an example of a simple Button.
+Create an UI Component. We will use an example of a simple Button.
 ```bash
 ng generate component button
 ```
 
-### Customise the components as per our needs.
+Customise the components as per our needs.
 #### **`button.component.ts`**
 ```diff
 -   import { Component, OnInit } from '@angular/core';
@@ -44,7 +44,7 @@ ng generate component button
 <button [disabled]="disabled">{{text}}</button>
 ```
 
-### Create Button module to consolidate the component and services.
+Create Button module to consolidate the component and services.
 ```bash
 ng generate module button
 ```
@@ -69,19 +69,19 @@ ng generate module button
     export class ButtonModule { }
 ```
 
-### Create index file to export all the modules, components and services.
+Create index file to export all the modules, components and services.
 #### **`button/index.ts`**
 ```ts
 export * from './button.component'
 export * from './button.module'
 ```
 
-### This will allow us to export the button component with single export in public-api.
+This will allow us to export the button component with single export in public-api.
 #### **`public-api.ts`**
 ```ts
 export * from './lib/button'
 ```
-### Remove the ButtonComponent from the declarations (which is added by default with ng generate component commnand) in the root module. Add the ButtonModule to the imports.
+Remove the ButtonComponent from the declarations (which is added by default with ng generate component commnand) in the root module. Add the ButtonModule to the imports.
 #### **`flux.module.ts`**
 ```diff
     import { NgModule } from '@angular/core';
@@ -106,7 +106,7 @@ export * from './lib/button'
     export class FluxModule { }
 ```
 
-### Finally, pack the library using the following scripts
+Finally, pack the library using the following scripts
 #### **`package.json`**
 ```diff
     "scripts": {
@@ -126,7 +126,7 @@ export * from './lib/button'
 npm run package
 ```
 
-### Install the tarball to use the standalone library in your application. Copy the tarball to the application directory and use its absolute filepath.
+Install the tarball to use the standalone library in your application. Copy the tarball to the application directory and use its absolute filepath.
 
 ```bash
 npm install <filepath>
